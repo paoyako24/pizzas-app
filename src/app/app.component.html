@@ -1,0 +1,43 @@
+<h1>Bienvenido a la Pizzería 🍕</h1>
+
+<div class="pizzas-container">
+  <div class="card" id="margarita" (click)="mostrarDetalles('margarita')">
+    <img src="assets/img/margarita.jpg" alt="Pizza Margarita">
+    <h2>Pizza Margarita</h2>
+    <p>Clásica y deliciosa con queso y tomate.</p>
+  </div>
+
+  <div class="card" id="pepperoni" (click)="mostrarDetalles('pepperoni')">
+    <img src="assets/img/pepperoni.jpg" alt="Pizza Pepperoni">
+    <h2>Pizza Pepperoni</h2>
+    <p>Con mucho pepperoni y queso fundido.</p>
+  </div>
+
+  <div class="card" id="vegetariana" (click)="mostrarDetalles('vegetariana')">
+    <img src="assets/img/vegetariana.jpg" alt="Pizza Vegetariana">
+    <h2>Pizza Vegetariana</h2>
+    <p>Llena de verduras frescas y sabor natural.</p>
+  </div>
+</div>
+
+<!-- Detalles de cada pizza -->
+<div class="detalles-container">
+  <div class="detalles" id="detalles-margarita">
+    <h3>Pizza Margarita</h3>
+    <p><strong>Ingredientes:</strong> Queso, tomate, albahaca, masa fresca.</p>
+    <p><strong>Proceso de elaboración:</strong> Hornear a 220°C por 12 minutos.</p>
+  </div>
+
+  <div class="detalles" id="detalles-pepperoni">
+    <h3>Pizza Pepperoni</h3>
+    <p><strong>Ingredientes:</strong> Queso, salsa de tomate, pepperoni, masa fresca.</p>
+    <p><strong>Proceso de elaboración:</strong> Hornear a 220°C por 15 minutos.</p>
+  </div>
+
+  <div class="detalles" id="detalles-vegetariana">
+    <h3>Pizza Vegetariana</h3>
+    <p><strong>Ingredientes:</strong> Queso, pimientos, champiñones, cebolla, masa fresca.</p>
+    <p><strong>Proceso de elaboración:</strong> Hornear a 220°C por 14 minutos.</p>
+  </div>
+</div>
+

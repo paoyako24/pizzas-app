@@ -1,0 +1,48 @@
+<h1>Bienvenido a la Pizzería 🍕</h1>
+
+<div class="pizzas-container">
+
+  <div class="card" id="margarita" (click)="toggleDetalles('margarita')">
+    <img src="https://images.unsplash.com/photo-1601924582971-3b1b6f0f86db?auto=format&fit=crop&w=400&q=80" alt="Margarita">
+    <h2>Margarita</h2>
+    <p>Clásica con tomate, queso y albahaca.</p>
+  </div>
+
+  <div class="card" id="pepperoni" (click)="toggleDetalles('pepperoni')">
+    <img src="https://images.unsplash.com/photo-1601924582973-fb4e4f062bcb?auto=format&fit=crop&w=400&q=80" alt="Pepperoni">
+    <h2>Pepperoni</h2>
+    <p>Deliciosa con pepperoni y mucho queso.</p>
+  </div>
+
+  <div class="card" id="hawaiana" (click)="toggleDetalles('hawaiana')">
+    <img src="https://images.unsplash.com/photo-1601924582970-8e1fba0c3c8b?auto=format&fit=crop&w=400&q=80" alt="Hawaiana">
+    <h2>Hawaiana</h2>
+    <p>Dulce y salada con piña y jamón.</p>
+  </div>
+
+</div>
+
+<div class="detalles-container">
+  <div class="detalles margarita-detalles" [class.visible]="mostrarMargarita">
+    <h3>Margarita</h3>
+    <p><strong>Ingredientes:</strong> Tomate, queso mozzarella, albahaca, aceite de oliva.</p>
+    <p><strong>Proceso:</strong> Hornear la base, agregar ingredientes y gratinar.</p>
+  </div>
+
+  <div class="detalles pepperoni-detalles" [class.visible]="mostrarPepperoni">
+    <h3>Pepperoni</h3>
+    <p><strong>Ingredientes:</strong> Tomate, queso mozzarella, pepperoni.</p>
+    <p><strong>Proceso:</strong> Hornear la base, agregar ingredientes y gratinar.</p>
+  </div>
+
+  <div class="detalles hawaiana-detalles" [class.visible]="mostrarHawaiana">
+    <h3>Hawaiana</h3>
+    <p><strong>Ingredientes:</strong> Tomate, queso mozzarella, jamón, piña.</p>
+    <p><strong>Proceso:</strong> Hornear la base, agregar ingredientes y gratinar.</p>
+  </div>
+</div>
+
+
+
+
+
