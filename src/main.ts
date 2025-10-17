@@ -1,8 +1,14 @@
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
-import { AppModule } from './app/app.module';
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
 
-platformBrowserDynamic().bootstrapModule(AppModule)
-  .catch(err => console.error(err));
+@NgModule({
+  imports: [
+    BrowserModule
+  ],
+  bootstrap: []
+})
+export class AppModule {}
+
 
 
 
