@@ -1,46 +1,47 @@
 <h1>Bienvenido a la Pizzería 🍕</h1>
 
 <div class="pizzas-container">
-
-  <div class="card" id="margarita" (click)="toggleDetalles('margarita')">
-    <img src="https://images.unsplash.com/photo-1601924582971-3b1b6f0f86db?auto=format&fit=crop&w=400&q=80" alt="Margarita">
+  <div class="card" id="margarita" (click)="mostrarInfo('margarita')">
+    <img src="https://images.unsplash.com/photo-1601924572142-d9e0b1d3175b?auto=format&fit=crop&w=400&q=80" alt="Margarita">
     <h2>Margarita</h2>
-    <p>Clásica con tomate, queso y albahaca.</p>
+    <p>Clásica y deliciosa.</p>
   </div>
 
-  <div class="card" id="pepperoni" (click)="toggleDetalles('pepperoni')">
-    <img src="https://images.unsplash.com/photo-1601924582973-fb4e4f062bcb?auto=format&fit=crop&w=400&q=80" alt="Pepperoni">
+  <div class="card" id="pepperoni" (click)="mostrarInfo('pepperoni')">
+    <img src="https://images.unsplash.com/photo-1594007653847-9a4e3ebba47d?auto=format&fit=crop&w=400&q=80" alt="Pepperoni">
     <h2>Pepperoni</h2>
-    <p>Deliciosa con pepperoni y mucho queso.</p>
+    <p>Sabor intenso y picante.</p>
   </div>
 
-  <div class="card" id="hawaiana" (click)="toggleDetalles('hawaiana')">
-    <img src="https://images.unsplash.com/photo-1601924582970-8e1fba0c3c8b?auto=format&fit=crop&w=400&q=80" alt="Hawaiana">
-    <h2>Hawaiana</h2>
-    <p>Dulce y salada con piña y jamón.</p>
+  <div class="card" id="vegetariana" (click)="mostrarInfo('vegetariana')">
+    <img src="https://images.unsplash.com/photo-1594007653847-9a4e3ebba47d?auto=format&fit=crop&w=400&q=80" alt="Vegetariana">
+    <h2>Vegetariana</h2>
+    <p>Fresca y saludable.</p>
   </div>
-
 </div>
 
 <div class="detalles-container">
-  <div class="detalles margarita-detalles" [class.visible]="mostrarMargarita">
+  <div class="detalles margarita-detalles" *ngIf="detallesVisibles.margarita">
     <h3>Margarita</h3>
-    <p><strong>Ingredientes:</strong> Tomate, queso mozzarella, albahaca, aceite de oliva.</p>
-    <p><strong>Proceso:</strong> Hornear la base, agregar ingredientes y gratinar.</p>
+    <p><strong>Ingredientes:</strong> Queso, tomate, albahaca.</p>
+    <p><strong>Proceso:</strong> Hornear a 220°C por 10 minutos.</p>
   </div>
 
-  <div class="detalles pepperoni-detalles" [class.visible]="mostrarPepperoni">
+  <div class="detalles pepperoni-detalles" *ngIf="detallesVisibles.pepperoni">
     <h3>Pepperoni</h3>
-    <p><strong>Ingredientes:</strong> Tomate, queso mozzarella, pepperoni.</p>
-    <p><strong>Proceso:</strong> Hornear la base, agregar ingredientes y gratinar.</p>
+    <p><strong>Ingredientes:</strong> Queso, salsa de tomate, pepperoni.</p>
+    <p><strong>Proceso:</strong> Hornear a 220°C por 12 minutos.</p>
   </div>
 
-  <div class="detalles hawaiana-detalles" [class.visible]="mostrarHawaiana">
-    <h3>Hawaiana</h3>
-    <p><strong>Ingredientes:</strong> Tomate, queso mozzarella, jamón, piña.</p>
-    <p><strong>Proceso:</strong> Hornear la base, agregar ingredientes y gratinar.</p>
+  <div class="detalles vegetariana-detalles" *ngIf="detallesVisibles.vegetariana">
+    <h3>Vegetariana</h3>
+    <p><strong>Ingredientes:</strong> Queso, tomates, pimientos, champiñones.</p>
+    <p><strong>Proceso:</strong> Hornear a 220°C por 10 minutos.</p>
   </div>
 </div>
+
+
+
 
 
 

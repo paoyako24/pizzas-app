@@ -3,46 +3,45 @@ import gsap from 'gsap';
 
 @Component({
   selector: 'app-pizzas',
+  standalone: true,
   templateUrl: './pizzas.component.html',
   styleUrls: ['./pizzas.component.css']
 })
 export class PizzasComponent implements AfterViewInit {
 
-  mostrarMargarita = false;
-  mostrarPepperoni = false;
-  mostrarHawaiana = false;
+  detallesVisibles = {
+    margarita: false,
+    pepperoni: false,
+    vegetariana: false
+  };
 
   ngAfterViewInit() {
-    // Animación inicial de las tarjetas
-    gsap.fromTo('#margarita',
-      { opacity: 0, y: 50 },
-      { opacity: 1, y: 0, duration: 1, ease: 'power3.out' }
-    );
-    gsap.fromTo('#pepperoni',
-      { opacity: 0, y: 50 },
-      { opacity: 1, y: 0, duration: 1, delay: 0.3, ease: 'power3.out' }
-    );
-    gsap.fromTo('#hawaiana',
-      { opacity: 0, y: 50 },
-      { opacity: 1, y: 0, duration: 1, delay: 0.6, ease: 'power3.out' }
+    gsap.fromTo('.card',
+      { opacity: 0, y: 100, scale: 0.8 },
+      { opacity: 1, y: 0, scale: 1, duration: 1, stagger: 0.3, ease: 'elastic.out(1, 0.5)' }
     );
   }
 
-  toggleDetalles(pizza: 'margarita' | 'pepperoni' | 'hawaiana') {
-    // Cierra todas primero
-    this.mostrarMargarita = false;
-    this.mostrarPepperoni = false;
-    this.mostrarHawaiana = false;
+  mostrarInfo(sabor: 'margarita' | 'pepperoni' | 'vegetariana') {
+    // Oculta todos primero
+    (Object.keys(this.detallesVisibles) as (keyof typeof this.detallesVisibles)[]).forEach(key => {
+      this.detallesVisibles[key] = false;
+    });
 
-    // Abre la seleccionada
-    if (pizza === 'margarita') this.mostrarMargarita = true;
-    if (pizza === 'pepperoni') this.mostrarPepperoni = true;
-    if (pizza === 'hawaiana') this.mostrarHawaiana = true;
+    // Muestra solo el seleccionado
+    this.detallesVisibles[sabor] = true;
 
-    // Animación GSAP
-    let selector = `.${pizza}-detalles`;
-    gsap.fromTo(selector, { opacity: 0, y: -20 }, { opacity: 1, y: 0, duration: 0.5 });
+    // Animación
+    gsap.fromTo(`.${sabor}-detalles`,
+      { opacity: 0, x: 100 },
+      { opacity: 1, x: 0, duration: 0.6, ease: 'power3.out' }
+    );
   }
 }
+
+
+
+
+
 
 
