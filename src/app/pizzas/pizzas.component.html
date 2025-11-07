@@ -1,44 +1,35 @@
-<h1>Bienvenido a la Pizzería 🍕</h1>
+<div class="menu-container">
+  <h1>🍕 Menú de Pizzas</h1>
 
-<div class="pizzas-container">
-  <div class="card" id="margarita" (click)="mostrarInfo('margarita')">
-    <img src="https://images.unsplash.com/photo-1601924572142-d9e0b1d3175b?auto=format&fit=crop&w=400&q=80" alt="Margarita">
-    <h2>Margarita</h2>
-    <p>Clásica y deliciosa.</p>
-  </div>
-
-  <div class="card" id="pepperoni" (click)="mostrarInfo('pepperoni')">
-    <img src="https://images.unsplash.com/photo-1594007653847-9a4e3ebba47d?auto=format&fit=crop&w=400&q=80" alt="Pepperoni">
+  <!-- Pizza Pepperoni -->
+  <div class="pizza-card">
+    <img src="assets/pizzas/pepperoni.jpg" alt="Pizza Pepperoni">
     <h2>Pepperoni</h2>
-    <p>Sabor intenso y picante.</p>
+    <button (click)="mostrarDetalles('pepperoni')">
+      {{ detallesVisibles.pepperoni ? 'Ocultar detalles' : 'Mostrar detalles' }}
+    </button>
+
+    <div *ngIf="detallesVisibles.pepperoni" class="pizza-detalles">
+      <p>Ingredientes: pepperoni, queso mozzarella, salsa de tomate y orégano.</p>
+      <p>Precio: $180 MXN</p>
+    </div>
   </div>
 
-  <div class="card" id="vegetariana" (click)="mostrarInfo('vegetariana')">
-    <img src="https://images.unsplash.com/photo-1594007653847-9a4e3ebba47d?auto=format&fit=crop&w=400&q=80" alt="Vegetariana">
+  <!-- Pizza Vegetariana -->
+  <div class="pizza-card">
+    <img src="assets/pizzas/vegetariana.jpg" alt="Pizza Vegetariana">
     <h2>Vegetariana</h2>
-    <p>Fresca y saludable.</p>
+    <button (click)="mostrarDetalles('vegetariana')">
+      {{ detallesVisibles.vegetariana ? 'Ocultar detalles' : 'Mostrar detalles' }}
+    </button>
+
+    <div *ngIf="detallesVisibles.vegetariana" class="pizza-detalles">
+      <p>Ingredientes: pimientos, champiñones, aceitunas y queso.</p>
+      <p>Precio: $160 MXN</p>
+    </div>
   </div>
 </div>
 
-<div class="detalles-container">
-  <div class="detalles margarita-detalles" *ngIf="detallesVisibles.margarita">
-    <h3>Margarita</h3>
-    <p><strong>Ingredientes:</strong> Queso, tomate, albahaca.</p>
-    <p><strong>Proceso:</strong> Hornear a 220°C por 10 minutos.</p>
-  </div>
-
-  <div class="detalles pepperoni-detalles" *ngIf="detallesVisibles.pepperoni">
-    <h3>Pepperoni</h3>
-    <p><strong>Ingredientes:</strong> Queso, salsa de tomate, pepperoni.</p>
-    <p><strong>Proceso:</strong> Hornear a 220°C por 12 minutos.</p>
-  </div>
-
-  <div class="detalles vegetariana-detalles" *ngIf="detallesVisibles.vegetariana">
-    <h3>Vegetariana</h3>
-    <p><strong>Ingredientes:</strong> Queso, tomates, pimientos, champiñones.</p>
-    <p><strong>Proceso:</strong> Hornear a 220°C por 10 minutos.</p>
-  </div>
-</div>
 
 
 

@@ -1,43 +1,34 @@
-import { Component, AfterViewInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import gsap from 'gsap';
 
 @Component({
   selector: 'app-pizzas',
   standalone: true,
+  imports: [CommonModule],
   templateUrl: './pizzas.component.html',
   styleUrls: ['./pizzas.component.css']
 })
-export class PizzasComponent implements AfterViewInit {
+export class PizzasComponent {
 
+  // Estados de visibilidad para los detalles
   detallesVisibles = {
-    margarita: false,
     pepperoni: false,
     vegetariana: false
   };
 
+  // Animación con GSAP al cargar el componente
   ngAfterViewInit() {
-    gsap.fromTo('.card',
-      { opacity: 0, y: 100, scale: 0.8 },
-      { opacity: 1, y: 0, scale: 1, duration: 1, stagger: 0.3, ease: 'elastic.out(1, 0.5)' }
-    );
+    gsap.from('.pizza-card', { opacity: 0, y: 40, duration: 1, stagger: 0.3, ease: 'power2.out' });
   }
 
-  mostrarInfo(sabor: 'margarita' | 'pepperoni' | 'vegetariana') {
-    // Oculta todos primero
-    (Object.keys(this.detallesVisibles) as (keyof typeof this.detallesVisibles)[]).forEach(key => {
-      this.detallesVisibles[key] = false;
-    });
-
-    // Muestra solo el seleccionado
-    this.detallesVisibles[sabor] = true;
-
-    // Animación
-    gsap.fromTo(`.${sabor}-detalles`,
-      { opacity: 0, x: 100 },
-      { opacity: 1, x: 0, duration: 0.6, ease: 'power3.out' }
-    );
-  }
+  // Función para alternar la visibilidad de los detalles
+mostrarDetalles(tipo: keyof typeof this.detallesVisibles) {
+  this.detallesVisibles[tipo] = !this.detallesVisibles[tipo];
 }
+}
+
+
 
 
 
